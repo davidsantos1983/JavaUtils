@@ -18,9 +18,9 @@ class ThreadsUtilsTest {
 
 		ThreadsUtils.runAll(threads);
 		Assert.assertEquals(true, true);
-		
+
 		Assert.assertEquals(true, ThreadsUtils.waitAll(threads));
-		
+
 		ThreadsUtils.stopAll(threads);
 		Assert.assertEquals(true, true);
 	}
