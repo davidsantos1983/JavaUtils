@@ -3,6 +3,9 @@ package thread;
 import java.util.List;
 
 public class ThreadsUtils {
+	
+	private ThreadsUtils() {
+	}
 
     public static void runAll(List<Thread> threads) {
 
