@@ -70,4 +70,59 @@ public class Main {
         }
         return sb.toString().trim();
     }
+
+    public static boolean checkIfPalindrome(String s){
+
+        if(s == null || s.isEmpty()){
+            return false;
+        }
+        String reversedString = reverse(s);
+        return s.equals(reversedString);
+    }
+
+    public String removeDuplicates(String s){
+        if(s == null || s.isEmpty()){
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < s.length(); i++){
+            String currentChar = String.valueOf(s.charAt(i));
+            if(!sb.toString().contains(currentChar)){
+                sb.append(currentChar);
+            }
+        }
+        return sb.toString();
+    }
+
+    public  String swapCharacters(String s, int index1, int index2){
+        if(s == null || s.isEmpty()){
+            return null;
+        }
+        char[] charArray = s.toCharArray();
+        char temp = charArray[index1];
+        charArray[index1] = charArray[index2];
+        charArray[index2] = temp;
+        return String.valueOf(charArray);
+    }
+
+    public String encrypt(String s, int key){
+
+        if(s == null || s.isEmpty()){
+            return null;
+        }
+        
+StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < s.length(); i++){
+
+            char currentChar = s.charAt(i);
+            int ascii = (int) currentChar;
+            int encryptedAscii = ascii + key;
+            char encryptedChar = (char) encryptedAscii;
+            sb.append(encryptedChar);
+        }
+        return sb.toString();
+    }
+
+
 }
