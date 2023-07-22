@@ -25,11 +25,22 @@ public class Main {
         */
     }
 
+    /**
+     * Reverse a string
+     *
+     * @param s string
+     * @return reversed string
+     */
     public static String reverse(String s) {
         return new StringBuilder(s).reverse().toString();
     }
 
-    //Problem with punctuation
+    /**
+     * Reverse words in a string
+     *
+     * @param s string
+     * @return reversed string with reversed words
+     */
     public static String reverseWords(String s) {
         String[] words = s.split(" ");
         StringBuilder reversedString = new StringBuilder();
@@ -39,10 +50,23 @@ public class Main {
         return reversedString.toString().trim();
     }
 
+    /**
+     * Check if a string is empty
+     *
+     * @param s string
+     * @return true if string is empty
+     */
     public static boolean isEmpty(String s) {
         return s == null || s.length() == 0;
     }
 
+    /**
+     * Count the number of occurrences of a character or substring in a string
+     *
+     * @param s string
+     * @param c character or substring
+     * @return number of occurrences
+     */
     public static int countOcurrences(String s, String target) {
 
         if (s == null || target == null || target.isEmpty()) {
@@ -58,6 +82,12 @@ public class Main {
 
     }
 
+    /**
+     * Capitalizes a string
+     *
+     * @param s string
+     * @return capitalized string
+     */
     public static String capitalize(String s) {
 
         if (s == null || s.isEmpty()) {
@@ -71,31 +101,51 @@ public class Main {
         return sb.toString().trim();
     }
 
-    public static boolean checkIfPalindrome(String s){
+    /**
+     * Check if a string is a palindrome
+     *
+     * @param s string
+     * @return true if string is a palindrome
+     */
+    public static boolean checkIfPalindrome(String s) {
 
-        if(s == null || s.isEmpty()){
+        if (s == null || s.isEmpty()) {
             return false;
         }
         String reversedString = reverse(s);
         return s.equals(reversedString);
     }
 
-    public String removeDuplicates(String s){
-        if(s == null || s.isEmpty()){
+    /**
+     * Removes duplicate characters from a string
+     *
+     * @param s string
+     * @return string without duplicate characters
+     */
+    public static String removeDuplicates(String s) {
+        if (s == null || s.isEmpty()) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             String currentChar = String.valueOf(s.charAt(i));
-            if(!sb.toString().contains(currentChar)){
+            if (!sb.toString().contains(currentChar)) {
                 sb.append(currentChar);
             }
         }
         return sb.toString();
     }
 
-    public  String swapCharacters(String s, int index1, int index2){
-        if(s == null || s.isEmpty()){
+    /**
+     * Swaps 2 characters in a string
+     *
+     * @param s string
+     * @param index1 index of first character (int)
+     * @param index2 index of second character (int)
+     * @return string with swapped characters
+     */
+    public static String swapCharacters(String s, int index1, int index2) {
+        if (s == null || s.isEmpty()) {
             return null;
         }
         char[] charArray = s.toCharArray();
@@ -105,15 +155,22 @@ public class Main {
         return String.valueOf(charArray);
     }
 
-    public String encrypt(String s, int key){
+    /**
+     * Encrypts a string
+     *
+     * @param s string
+     * @param key encryption key
+     * @return encrypted string
+     */
+    public static String encrypt(String s, int key) {
 
-        if(s == null || s.isEmpty()){
+        if (s == null || s.isEmpty()) {
             return null;
         }
-        
-StringBuilder sb = new StringBuilder();
 
-        for(int i = 0; i < s.length(); i++){
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
 
             char currentChar = s.charAt(i);
             int ascii = (int) currentChar;
@@ -122,6 +179,34 @@ StringBuilder sb = new StringBuilder();
             sb.append(encryptedChar);
         }
         return sb.toString();
+    }
+
+    /**
+     * Counts the vowels in a string
+     *
+     * @param s string
+     * @return array of strings with the vowels and their count
+     */
+    public static String[] countVowels(String s) {
+
+        if (s == null || s.isEmpty()) {
+            return null;
+        }
+        String[] vowels = {"a", "e", "i", "o", "u"};
+        int[] count = new int[5];
+        for (int i = 0; i < s.length(); i++) {
+            String currentChar = String.valueOf(s.charAt(i));
+            for (int j = 0; j < vowels.length; j++) {
+                if (currentChar.equalsIgnoreCase(vowels[j])) {
+                    count[j]++;
+                }
+            }
+        }
+        String[] result = new String[5];
+        for (int i = 0; i < vowels.length; i++) {
+            result[i] = vowels[i] + " = " + count[i];
+        }
+        return result;
     }
 
 
